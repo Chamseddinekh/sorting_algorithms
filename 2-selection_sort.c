@@ -24,6 +24,7 @@ min = j;
 tmp = array[i];
 array[i] = array[min];
 array[min] = tmp;
+print_array(array, size);
 }
 
 }
