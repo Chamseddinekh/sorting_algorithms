@@ -21,10 +21,14 @@ if (array[j] < array[min])
 min = j;
 }
 }
+if (min != i)
+
+{
 tmp = array[i];
 array[i] = array[min];
 array[min] = tmp;
 print_array(array, size);
+}
 }
 
 }
