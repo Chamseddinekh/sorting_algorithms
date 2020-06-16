@@ -7,19 +7,21 @@
  */
 void selection_sort(int *array, size_t size)
 {
-size_t i;
-int j, tmp;
-if (size < 2)
-return;
-for (i = 0; i < size; i++)
+size_t i, j, tmp, min;
+
+for (i = 0; i < size - 1; i++)
 {
+min = i;
+for(j = i + 1; j < size; j++)
+{
+if(array[j] < array[min])
+{
+min = j;
+}
+}
 tmp = array[i];
-j = i - 1;
-while (j >= 0 && array[j] > tmp)
-{
-array[j + 1] = array[j];
-j = j - 1;
-array[j + 1] = tmp;
+array[i] = array[min];
+array[min] = tmp;
 }
-}
+
 }
