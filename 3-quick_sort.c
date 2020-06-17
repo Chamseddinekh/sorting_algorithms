@@ -21,16 +21,20 @@ int t = *a;
 int partition(int *array, int low, int high, size_t size)
 {
 int pivot = array[high];
-int i = (low - 1);
-for (int j = low; j <= high - 1; j++)
+int i, j;
+i = low - 1;
+for (j = low; j < high; j++)
 {
 if (array[j] <= pivot)
 {
 i++;
 sp(&array[i], &array[j]);
+if (i != j)
+print_array(array, size);
 }
 }
 sp(&array[i + 1], &array[high]);
+if (high != (i + 1))
 print_array(array, size);
 return (i + 1);
 }
@@ -43,11 +47,12 @@ return (i + 1);
  */
 void quicks(int *array, int low, int high, size_t size)
 {
+int pivot;
 if (low < high)
 {
-int pi = partition(array, low, high, size);
-quicks(array, low, pi - 1, size);
-quicks(array, pi + 1, high, size);
+pivot = partition(array, low, high, size);
+quicks(array, low, pivot - 1, size);
+quicks(array, pivot + 1, high, size);
 }
 }
 /**
